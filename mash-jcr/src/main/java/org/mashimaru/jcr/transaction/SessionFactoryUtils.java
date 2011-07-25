@@ -84,8 +84,8 @@ public class SessionFactoryUtils {
 		SessionHolder sessionHolder = (SessionHolder) TransactionSynchronizationManager
 				.getResource(sessionFactory);
 
-		return ((sessionHolder != null) && (session == sessionHolder
-				.getSession()));
+		return ((sessionHolder != null) && (session.equals(sessionHolder
+				.getSession())));
 	}
 
 	public static void releaseSession(Session session,

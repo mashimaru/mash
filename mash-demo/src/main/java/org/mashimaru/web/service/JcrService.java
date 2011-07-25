@@ -51,6 +51,8 @@ public class JcrService {
 					indexContentNode.setProperty("jcr:mimeType", "text/html");
 
 					session.save();
+
+					// throw new RepositoryException();
 				}
 
 				return null;

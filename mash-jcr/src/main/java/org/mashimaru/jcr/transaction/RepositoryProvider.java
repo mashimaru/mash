@@ -1,8 +1,10 @@
 package org.mashimaru.jcr.transaction;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.jcr.Repository;
 
+import org.apache.jackrabbit.api.JackrabbitRepository;
 import org.apache.jackrabbit.core.RepositoryImpl;
 import org.apache.jackrabbit.core.config.RepositoryConfig;
 import org.springframework.beans.factory.FactoryBean;
@@ -23,6 +25,13 @@ public class RepositoryProvider implements FactoryBean<Repository> {
 		repositoryConfig = RepositoryConfig.create(new InputSource(
 				configuration.getInputStream()), homeDirectory);
 		repository = RepositoryImpl.create(repositoryConfig);
+	}
+
+	@PreDestroy
+	public void destroy() {
+		if (repository instanceof JackrabbitRepository) {
+			((JackrabbitRepository) repository).shutdown();
+		}
 	}
 
 	@Override
