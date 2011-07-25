@@ -3,6 +3,7 @@
 	<name>mash-demo</name>
 	<comment></comment>
 	<projects>
+		<project>mash-jcr</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
