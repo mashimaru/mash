@@ -15,9 +15,8 @@ import org.mashimaru.web.service.JcrService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("serial")
 public class HomePage extends WebPage {
-	private static final long serialVersionUID = 1L;
-
 	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory
 			.getLogger(HomePage.class);
